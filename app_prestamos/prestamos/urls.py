@@ -1,6 +1,6 @@
 # prestamos/urls.py
 from django.urls import path
-from .templates.prestamos import views
+from . import views
 
 urlpatterns = [
     path('solicitar/', views.solicitar_prestamo, name='solicitar_prestamo'),
