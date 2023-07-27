@@ -1,0 +1,27 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - DJANGO_SECRET_KEY=4wcFB"_9HL!2Dc(j2Oykt4/N}p^,@J[(LVsD$\M"7Nd*d4wh}  
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=Prestamos  
+      - POSTGRES_USER=admin  
+      - POSTGRES_PASSWORD=admin  
+
+
+
+

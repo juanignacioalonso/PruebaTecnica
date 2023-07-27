@@ -1,0 +1,40 @@
+<!-- templates/prestamos/formulario_prestamo.html -->
+{% extends "base_site.html" %}
+
+{% block title %}Solicitud de Préstamo{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Solicitud de Préstamo</h1>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" name="dni" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="genero">Género:</label>
+        <select name="genero" class="form-control" required>
+            {% for genero in generos %}
+            <option value="{{ genero.id }}">{{ genero.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="monto_solicitado">Monto solicitado:</label>
+        <input type="number" name="monto_solicitado" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Solicitar Préstamo</button>
+</form>
+{% endblock %}

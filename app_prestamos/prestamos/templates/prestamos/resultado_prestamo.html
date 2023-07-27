@@ -1,0 +1,11 @@
+<!-- templates/prestamos/resultado_prestamo.html -->
+{% extends "base_site.html" %}
+
+{% block title %}Resultado del Préstamo{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Resultado del Préstamo</h1>
+<p>Su solicitud de préstamo ha sido procesada.</p>
+<p>Estado del préstamo: {% if pedido.aprobado %}Aprobado{% else %}Rechazado{% endif %}</p>
+<p>Monto solicitado: {{ pedido.monto_solicitado }}</p>
+{% endblock %}
