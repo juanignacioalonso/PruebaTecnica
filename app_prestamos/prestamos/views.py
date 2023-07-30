@@ -31,7 +31,12 @@ def editar_pedido(request, pedido_id):
 
     pedido = get_object_or_404(PedidoPrestamo, pk=pedido_id)
     if request.method == 'POST':
-        # Procesar el formulario de edición aquí y guardar los cambios.
+        nuevo_monto = request.POST.get('monto_solicitado', None)
+
+        if nuevo_monto is not None:
+            # Actualizar el monto solicitado del pedido con el nuevo valor.
+            pedido.monto_solicitado = nuevo_monto
+            pedido.save()  # Guardar los cambios en la base de datos.
         
         return redirect('listar_pedidos')
 
