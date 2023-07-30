@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'prestamos'
+    'prestamos',
+    'autentificacion',
+    'inicio',
+    
 ]
 
 MIDDLEWARE = [
@@ -76,12 +79,8 @@ WSGI_APPLICATION = 'app_prestamos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Prestamos',  
-        'USER': 'admin',  # Cambiar por el usuario de la base de datos
-        'PASSWORD': 'Master2008',  # Cambiar por la contraseña de la base de datos
-        'HOST': 'db',  # Nombre del servicio de Docker Compose para la base de datos
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -126,3 +125,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'prestamos.MiUsuario'  
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Asegúrate de que esta línea esté en AUTHENTICATION_BACKENDS.
+]
+

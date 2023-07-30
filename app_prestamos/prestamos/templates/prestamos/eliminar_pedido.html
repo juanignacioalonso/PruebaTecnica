@@ -1,19 +1,11 @@
-<!-- templates/prestamos/eliminar_pedido.html -->
 {% extends "base_site.html" %}
 
-{% block title %}Eliminar Pedido de Préstamo{% endblock %}
+{% block title %}Eliminar Pedido{% endblock %}
 
 {% block content %}
-<h1 class="mt-4">Eliminar Pedido de Préstamo</h1>
-<div class="alert alert-danger mt-4">
-    <p>¿Estás seguro de que deseas eliminar el siguiente pedido de préstamo?</p>
-    <p><strong>DNI:</strong> {{ pedido.usuario.dni }}</p>
-    <p><strong>Nombre:</strong> {{ pedido.usuario.nombre }}</p>
-    <p><strong>Apellido:</strong> {{ pedido.usuario.apellido }}</p>
-    <p><strong>Género:</strong> {{ pedido.usuario.genero }}</p>
-    <p><strong>Email:</strong> {{ pedido.usuario.email }}</p>
-    <p><strong>Monto solicitado:</strong> {{ pedido.monto_solicitado }}</p>
-
+<div class="container">
+    <h1 class="mt-4">Eliminar Pedido</h1>
+    <p>¿Estás seguro de que deseas eliminar el pedido con ID {{ pedido.id }}?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Eliminar</button>

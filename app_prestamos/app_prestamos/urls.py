@@ -1,8 +1,12 @@
 
+from django import views
 from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prestamos/', include('prestamos.urls')),
+    path('', include('prestamos.urls')),
+    path('autentificacion',include('autentificacion.urls'))
+    
+
 ]
